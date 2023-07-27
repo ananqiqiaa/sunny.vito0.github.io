@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+     首页
+{% endblock %}
+
+{% block content %}
+<!-- 横幅 -->
+<div class="container-fluid">
+    <div class="row">
+        <img class="img-responsive model-img" src="{% static 'img/999.png' %}" style="height: 200px;width: 100%;">
+    </div>
+</div>
+<div class="container" style="width: 100%;">
+     <div class="row row-3">
+         <!-- 侧边导航栏 -->
+         <div class="col-md-3">
+                 <div class="model-title">
+                     公司简介
+                 </div>
+                 <div class="model-list">
+                     <ul class="list-group">
+                         <li class="list-group-item" id="gk">
+                             <a href="{% url 'gk' %}">2D地图</a>
+                         </li>
+                         <li class="list-group-item" id="ryzz">
+                             <a href="{% url 'ryzz' %}">3D地图</a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+
+ <!-- 图片展示 -->
+         <div class="col-md-9"  style="color:white">
+             <div class="model-details-title" style="color:white">
+          动漫地图模块
+         </div>
+     <div class="row" style="color:white">
+
+          {% for award in awards %}
+          <div class="col-sm-6 col-md-4">
+               <div class="thumbnail">
+                    <img src="{{award.photo.url}}" >
+                    <div class="caption">
+                         <p>{{award.description}}</p>
+                    </div>
+               </div>
+          </div>
+          {% endfor %}
+     </div>
+   </div>
+</div>
+</div>
+
+{% endblock %}
+
+
